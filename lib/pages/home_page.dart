@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_reader/pages/direcciones_page.dart';
 import 'package:qr_reader/pages/mapas_page.dart';
 import 'package:qr_reader/widgets/custom_navigatorbar.dart';
 import 'package:qr_reader/widgets/scan_button.dart';
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: MapasPage(),
+      body: DireccionesPage(),
       bottomNavigationBar: CustomNavigationBar(),
       floatingActionButton: ScanButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
