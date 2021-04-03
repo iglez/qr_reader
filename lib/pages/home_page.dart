@@ -12,10 +12,7 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         title: Text('Historial'),
         actions: [
-          IconButton(
-            icon: Icon(Icons.delete_forever),
-            onPressed: () {}
-          ),
+          IconButton(icon: Icon(Icons.delete_forever), onPressed: () {}),
         ],
       ),
       body: _HomePageBody(),
@@ -26,13 +23,20 @@ class HomePage extends StatelessWidget {
   }
 }
 
-
 class _HomePageBody extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Algo'),
-    );
+    final currenIndex = 0;
+
+    switch (currenIndex) {
+      case 0:
+        return MapasPage();
+
+      case 1:
+        return DireccionesPage();
+
+      default:
+        return MapasPage();
+    }
   }
 }
