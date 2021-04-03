@@ -4,6 +4,7 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      currentIndex: 1,
       items: <BottomNavigationBarItem> [
         BottomNavigationBarItem(
           icon: Icon(Icons.map),
