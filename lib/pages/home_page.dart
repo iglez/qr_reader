@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_reader/widgets/custom_navigatorbar.dart';
+import 'package:qr_reader/widgets/scan_button.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -19,6 +20,7 @@ class HomePage extends StatelessWidget {
         child: Text('Home page'),
       ),
       bottomNavigationBar: CustomNavigationBar(),
+      floatingActionButton: ScanButton(),
     );
   }
 }
