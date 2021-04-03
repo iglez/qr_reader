@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
       ),
       bottomNavigationBar: CustomNavigationBar(),
       floatingActionButton: ScanButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
