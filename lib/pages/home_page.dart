@@ -18,10 +18,21 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: DireccionesPage(),
+      body: _HomePageBody(),
       bottomNavigationBar: CustomNavigationBar(),
       floatingActionButton: ScanButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+}
+
+
+class _HomePageBody extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('Algo'),
     );
   }
 }
