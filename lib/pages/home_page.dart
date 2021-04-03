@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_reader/widgets/custom_navigatorbar.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -17,6 +18,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Text('Home page'),
       ),
+      bottomNavigationBar: CustomNavigationBar(),
     );
   }
 }
