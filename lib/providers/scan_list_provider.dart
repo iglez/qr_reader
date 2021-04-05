@@ -11,7 +11,9 @@ class ScanListProvider extends ChangeNotifier {
     int id = await DBProvider.db.nuevoScan(scanModel);
     scanModel.id = id;
 
-    this.scans.add(scanModel);
-    notifyListeners();
+    if (this.tipoSeleccionado == scanModel.tipo) {
+      this.scans.add(scanModel);
+      notifyListeners();
+    }
   }
 }
