@@ -1,6 +1,9 @@
 // Singleton
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DBProvider {
@@ -21,7 +24,11 @@ class DBProvider {
   }
 
   Future<Database> initDB() async {
+    // pathd de donde almacenaremos la base de datos
+    Directory documentsDirectory = await getApplicationDocumentsDirectory();
+
+    
+
     return null;
   }
-
 }
