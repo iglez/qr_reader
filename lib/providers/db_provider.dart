@@ -58,4 +58,9 @@ class DBProvider {
 
     return res;
   }
+
+  nuevoScan(ScanModel nuevoScan) async {
+    final Database db = await database;
+    return await db.insert('Scans', nuevoScan.toJson());
+  }
 }

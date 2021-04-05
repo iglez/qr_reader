@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qr_reader/models/scan_model.dart';
 import 'package:qr_reader/pages/direcciones_page.dart';
 import 'package:qr_reader/pages/mapas_page.dart';
 import 'package:qr_reader/providers/db_provider.dart';
@@ -35,7 +36,8 @@ class _HomePageBody extends StatelessWidget {
     final currenIndex = uiProvider.selectedMenuOpt;
 
     // TODO: Temporal solo para probar que existe
-    DBProvider.db.database;
+    ScanModel tempScan = ScanModel(valor: 'http://cetys.mx');
+    DBProvider.db.nuevoScan(tempScan);
 
     switch (currenIndex) {
       case 0:
