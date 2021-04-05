@@ -78,4 +78,15 @@ class DBProvider {
 
     return ScanModel.fromJson(res.first);
   }
+
+  Future<List<ScanModel>> getScans() async {
+    final Database db = await database;
+    final res = await db.query('Scans');
+
+    if (res.isEmpty) {
+      return null;
+    }
+
+    return res.map((scn) => ScanModel.fromJson(scn)).toList();
+  }
 }
