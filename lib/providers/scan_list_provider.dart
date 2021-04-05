@@ -33,5 +33,10 @@ class ScanListProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  borrarTodos() {}
+  borrarTodos() async {
+    await DBProvider.db.deleteAllScans();
+
+    this.scans = [];
+    notifyListeners();
+  }
 }
