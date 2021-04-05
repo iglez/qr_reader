@@ -61,6 +61,10 @@ class DBProvider {
 
   nuevoScan(ScanModel nuevoScan) async {
     final Database db = await database;
-    return await db.insert('Scans', nuevoScan.toJson());
+    final res = await db.insert('Scans', nuevoScan.toJson());
+
+    // ID del ultimo registro insertado
+    // print(res);
+    return res;
   }
 }
