@@ -39,7 +39,8 @@ class _HomePageBody extends StatelessWidget {
     ScanModel tempScan = ScanModel(valor: 'http://cetys.mx');
     // DBProvider.db.nuevoScan(tempScan);
     // DBProvider.db.getScanById(14).then((value) => print(value.valor));
-    DBProvider.db.getScans().then((values) => print(values.first.valor));
+    // DBProvider.db.getScans().then((values) => print(values.first.valor));
+    DBProvider.db.getScansPorTipo('http').then((values) => print(values.first.valor));
 
     switch (currenIndex) {
       case 0:
