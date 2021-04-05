@@ -36,11 +36,13 @@ class _HomePageBody extends StatelessWidget {
     final currenIndex = uiProvider.selectedMenuOpt;
 
     // TODO: Temporal solo para probar que existe
-    ScanModel tempScan = ScanModel(valor: 'http://cetys.mx');
+    // ScanModel tempScan = ScanModel(valor: 'http://cetys.mx');
     // DBProvider.db.nuevoScan(tempScan);
     // DBProvider.db.getScanById(14).then((value) => print(value.valor));
     // DBProvider.db.getScans().then((values) => print(values.first.valor));
-    DBProvider.db.getScansPorTipo('http').then((values) => print(values.first.valor));
+    // DBProvider.db.getScansPorTipo('http').then((values) => print(values.first.valor));
+    ScanModel tempScan = ScanModel(id: 14, valor: 'https://sorteos.cetys.mx/');
+    DBProvider.db.updateScan(tempScan).then((values) => print(values));
 
     switch (currenIndex) {
       case 0:
