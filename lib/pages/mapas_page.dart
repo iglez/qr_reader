@@ -12,6 +12,9 @@ class MapasPage extends StatelessWidget {
         itemCount: scanLisProvider.scans.length,
         itemBuilder: (_, i) => Dismissible(
           key: UniqueKey(),
+          background: Container(
+            color: Colors.red,
+          ),
           child: ListTile(
             leading: Icon(Icons.map, color: Theme.of(context).primaryColor),
             title: Text(scanLisProvider.scans[i].valor),
