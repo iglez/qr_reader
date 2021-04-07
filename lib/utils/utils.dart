@@ -3,11 +3,15 @@ import 'package:qr_reader/models/scan_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 launchURL(BuildContext context, ScanModel scan) async {
+  final String url = scan.valor;
 
-  const url = 'https://flutter.dev';
-  if (await canLaunch(url)) {
-    await launch(url);
+  if (scan.tipo == 'http') {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   } else {
-    throw 'Could not launch $url';
+    print('GEO');
   }
 }
