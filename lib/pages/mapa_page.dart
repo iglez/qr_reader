@@ -7,6 +7,7 @@ class MapaPage extends StatelessWidget {
     final ScanModel scan = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
+      appBar: AppBar(title: Text('Mapa'),),
       body: Center(
         child: Text(scan.valor),
       ),
