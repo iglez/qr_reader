@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:qr_reader/providers/scan_list_provider.dart';
 
 class DireccionesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Direcciones page'),
-    );
+
+    final scanLisProvider =
+        Provider.of<ScanListProvider>(context, listen: true);
+
+    return ListView.builder(
+        itemCount: scanLisProvider.scans.length,
+        itemBuilder: (_, i) => ListTile(
+              leading: Icon(Icons.home, color: Theme.of(context).primaryColor),
+              title: Text(scanLisProvider.scans[i].valor),
+              subtitle: Text(scanLisProvider.scans[i].id.toString()),
+              trailing: Icon(
+                Icons.keyboard_arrow_right,
+                color: Colors.grey,
+              ),
+              onTap: () =>
+                  print('Abrir.... ${scanLisProvider.scans[i].id.toString()}'),
+            )
+          );
   }
 }
