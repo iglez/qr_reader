@@ -15,6 +15,10 @@ class MapasPage extends StatelessWidget {
           background: Container(
             color: Colors.red,
           ),
+          onDismissed: (DismissDirection direction) {
+            Provider.of<ScanListProvider>(context, listen: false)
+                .borrarScansPorId(scanLisProvider.scans[i].id);
+          },
           child: ListTile(
             leading: Icon(Icons.map, color: Theme.of(context).primaryColor),
             title: Text(scanLisProvider.scans[i].valor),
