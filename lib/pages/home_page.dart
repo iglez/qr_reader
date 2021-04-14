@@ -4,6 +4,7 @@ import 'package:qr_reader/models/scan_model.dart';
 import 'package:qr_reader/pages/direcciones_page.dart';
 import 'package:qr_reader/pages/mapas_page.dart';
 import 'package:qr_reader/providers/db_provider.dart';
+import 'package:qr_reader/providers/scan_list_provider.dart';
 import 'package:qr_reader/providers/ui_provider.dart';
 import 'package:qr_reader/widgets/custom_navigatorbar.dart';
 import 'package:qr_reader/widgets/scan_button.dart';
@@ -35,6 +36,10 @@ class _HomePageBody extends StatelessWidget {
 
     final currenIndex = uiProvider.selectedMenuOpt;
 
+    // usar el scanlistProvider
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
+
     // TODO: Temporal solo para probar que existe
     // ScanModel tempScan = ScanModel(valor: 'http://cetys.mx');
     // DBProvider.db.nuevoScan(tempScan);
@@ -47,9 +52,11 @@ class _HomePageBody extends StatelessWidget {
 
     switch (currenIndex) {
       case 0:
+        scanListProvider.cargarScansPorTipo('geo');
         return MapasPage();
 
       case 1:
+      scanListProvider.cargarScansPorTipo('http');
         return DireccionesPage();
 
       default:

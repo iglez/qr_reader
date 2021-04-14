@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:qr_reader/providers/scan_list_provider.dart';
 
 class MapasPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final scanLisProvider =
+        Provider.of<ScanListProvider>(context, listen: true);
+
     return ListView.builder(
-      itemCount: 10,
-      itemBuilder: (_, i) => ListTile(
-        leading: Icon(Icons.map, color: Theme.of(context).primaryColor),
-        title: Text('http://'),
-        subtitle: Text('ID'),
-        trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey,),
-        onTap: () => print('Abrir....'),
-      )
-    );
+        itemCount: scanLisProvider.scans.length,
+        itemBuilder: (_, i) => ListTile(
+              leading: Icon(Icons.map, color: Theme.of(context).primaryColor),
+              title: Text(scanLisProvider.scans[i].valor),
+              subtitle: Text(scanLisProvider.scans[i].id.toString()),
+              trailing: Icon(
+                Icons.keyboard_arrow_right,
+                color: Colors.grey,
+              ),
+              onTap: () =>
+                  print('Abrir.... ${scanLisProvider.scans[i].id.toString()}'),
+            ));
   }
 }
