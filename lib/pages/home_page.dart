@@ -17,7 +17,16 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         title: Text('Historial'),
         actions: [
-          IconButton(icon: Icon(Icons.delete_forever), onPressed: () {}),
+          IconButton(
+            icon: Icon(Icons.delete_forever),
+            onPressed: () {
+              final scanLisProvider =
+                  Provider.of<ScanListProvider>(context, listen: false);
+
+              scanLisProvider.borrarTodos();
+              // print('Eliminar todos');
+            },
+          ),
         ],
       ),
       body: _HomePageBody(),
@@ -56,7 +65,7 @@ class _HomePageBody extends StatelessWidget {
         return MapasPage();
 
       case 1:
-      scanListProvider.cargarScansPorTipo('http');
+        scanListProvider.cargarScansPorTipo('http');
         return DireccionesPage();
 
       default:
