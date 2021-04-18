@@ -27,7 +27,7 @@ class _MapaPageState extends State<MapaPage> {
     return Scaffold(
       appBar: AppBar(title: Text('Mapa'),),
       body:  GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.normal,
         initialCameraPosition: _puntoInicial,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
