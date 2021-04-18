@@ -12,6 +12,7 @@ class MapaPage extends StatefulWidget {
 class _MapaPageState extends State<MapaPage> {
   // https://pub.dev/packages/google_maps_flutter/versions/1.0.6
   Completer<GoogleMapController> _controller = Completer();
+  MapType mapType = MapType.normal;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class _MapaPageState extends State<MapaPage> {
       ),
       body: GoogleMap(
         myLocationButtonEnabled: false,
-        mapType: MapType.normal,
+        mapType: mapType,
         markers: markers,
         initialCameraPosition: _puntoInicial,
         onMapCreated: (GoogleMapController controller) {
@@ -52,7 +53,17 @@ class _MapaPageState extends State<MapaPage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.layers),
-        onPressed: () {},
+        onPressed: () {
+          if (mapType == MapType.normal) {
+            mapType = MapType.satellite;
+          } else {
+            mapType = MapType.normal;
+          }
+
+          setState(() {
+            
+          });
+        },
       ),
     );
   }
