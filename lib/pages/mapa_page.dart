@@ -21,12 +21,14 @@ class _MapaPageState extends State<MapaPage> {
 
     final CameraPosition _puntoInicial = CameraPosition(
         target: scan.getLatLng(),
-        zoom: 17,
+        zoom: 17.5,
+        tilt: 50
       );
 
     return Scaffold(
       appBar: AppBar(title: Text('Mapa'),),
       body:  GoogleMap(
+        myLocationButtonEnabled: false,
         mapType: MapType.normal,
         initialCameraPosition: _puntoInicial,
         onMapCreated: (GoogleMapController controller) {
