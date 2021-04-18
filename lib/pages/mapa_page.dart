@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_reader/models/scan_model.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapaPage extends StatelessWidget {
   @override
