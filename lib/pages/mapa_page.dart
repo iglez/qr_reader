@@ -17,7 +17,7 @@ class _MapaPageState extends State<MapaPage> {
   @override
   Widget build(BuildContext context) {
 
-    final CameraPosition puntoInicial = CameraPosition(
+    final CameraPosition _puntoInicial = CameraPosition(
         target: LatLng(37.42796133580664, -122.085749655962),
         zoom: 14.4746,
       );
@@ -26,8 +26,12 @@ class _MapaPageState extends State<MapaPage> {
 
     return Scaffold(
       appBar: AppBar(title: Text('Mapa'),),
-      body: Center(
-        child: Text(scan.valor),
+      body:  GoogleMap(
+        mapType: MapType.hybrid,
+        initialCameraPosition: _puntoInicial,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+        },
       ),
     );
   }
