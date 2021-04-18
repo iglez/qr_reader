@@ -17,12 +17,12 @@ class _MapaPageState extends State<MapaPage> {
   @override
   Widget build(BuildContext context) {
 
+    final ScanModel scan = ModalRoute.of(context).settings.arguments;
+
     final CameraPosition _puntoInicial = CameraPosition(
-        target: LatLng(32.653430, -115.406609),
+        target: scan.getLatLng(),
         zoom: 17,
       );
-
-    final ScanModel scan = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
       appBar: AppBar(title: Text('Mapa'),),
