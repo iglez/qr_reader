@@ -12,6 +12,7 @@ class MapaPage extends StatefulWidget {
 class _MapaPageState extends State<MapaPage> {
   // https://pub.dev/packages/google_maps_flutter/versions/1.0.6
   Completer<GoogleMapController> _controller = Completer();
+  MapType mapType = MapType.normal;
 
   @override
   Widget build(BuildContext context) {
@@ -31,22 +32,37 @@ class _MapaPageState extends State<MapaPage> {
       appBar: AppBar(
         title: Text('Mapa'),
         actions: [
-          IconButton(icon: Icon(Icons.location_disabled_outlined), 
-          onPressed: () async {
-            // https://pub.dev/packages/google_maps_flutter/versions/1.0.6
-            final GoogleMapController controller = await _controller.future;
-            controller.animateCamera(CameraUpdate.newCameraPosition(_puntoInicial));
-          }
-          )
+          IconButton(
+              icon: Icon(Icons.location_disabled_outlined),
+              onPressed: () async {
+                // https://pub.dev/packages/google_maps_flutter/versions/1.0.6
+                final GoogleMapController controller = await _controller.future;
+                controller.animateCamera(
+                    CameraUpdate.newCameraPosition(_puntoInicial));
+              })
         ],
       ),
       body: GoogleMap(
         myLocationButtonEnabled: false,
-        mapType: MapType.normal,
+        mapType: mapType,
         markers: markers,
         initialCameraPosition: _puntoInicial,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.layers),
+        onPressed: () {
+          if (mapType == MapType.normal) {
+            mapType = MapType.satellite;
+          } else {
+            mapType = MapType.normal;
+          }
+
+          setState(() {
+            
+          });
         },
       ),
     );
